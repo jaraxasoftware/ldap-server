@@ -83,7 +83,7 @@ public class LdapServer {
         long startTime = System.currentTimeMillis();
 
         InMemoryDirectoryServiceFactory dsFactory = new InMemoryDirectoryServiceFactory();
-        dsFactory.init("ds");
+        dsFactory.init(cliArguments.getName());
 
         directoryService = dsFactory.getDirectoryService();
         System.out.println("Directory service started in " + (System.currentTimeMillis() - startTime) + "ms");

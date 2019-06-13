@@ -33,6 +33,9 @@ public class CLIArguments {
     public static final String DEFAULT_ADDR = "0.0.0.0";
     public static final int DEFAULT_PORT = 10389;
 
+    @Parameter(names= {"--name", "-n" },description = "Server name (default is 'ldap-server')")
+    private String name;
+    
     @Parameter(description = "[LDIFs to import]")
     private final List<String> ldifFiles = new ArrayList<String>();
 
@@ -74,6 +77,10 @@ public class CLIArguments {
     @Parameter(names = { "--ssl-keystore-password", "-skp" }, description = "takes keystore [password] as argument")
     private String sslKeystorePassword;
 
+    public String getName(){
+        return name;
+    }
+    
     public List<String> getLdifFiles() {
         return ldifFiles;
     }
