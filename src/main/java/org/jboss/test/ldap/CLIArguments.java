@@ -31,7 +31,6 @@ import com.beust.jcommander.Parameter;
 public class CLIArguments {
 
     public static final String DEFAULT_ADDR = "0.0.0.0";
-    public static final int DEFAULT_PORT = 10389;
 
     @Parameter(names= {"--name", "-n" },description = "Server name (default is 'ldap-server')")
     private String name;
@@ -47,7 +46,7 @@ public class CLIArguments {
 
     @Parameter(names = { "--port",
             "-p" }, description = "takes [portNumber] as a parameter and binds the LDAP server on that port")
-    private int port = DEFAULT_PORT;
+    private int port;
 
     @Parameter(names = { "--bind",
             "-b" }, description = "takes [bindAddress] as a parameter and binds the LDAP server on the address")
