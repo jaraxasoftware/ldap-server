@@ -50,7 +50,7 @@ public class CLIArguments {
 
     @Parameter(names = { "--bind",
             "-b" }, description = "takes [bindAddress] as a parameter and binds the LDAP server on the address")
-    private String bindAddress = DEFAULT_ADDR;
+    private String bindAddress;
 
     @Parameter(names = { "--ssl-port",
             "-sp" }, description = "adds SSL transport layer (i.e. 'ldaps' protocol). It takes [portNumber] as a parameter and binds the LDAPs server on the port")

@@ -6,11 +6,17 @@ ENV LDAP_PORT 10389
 ENV LDAPS_PORT 10636
 
 VOLUME /tmp
-VOLUME /keystore
+
+RUN mkdir -p /opt/ldap-server/ldif
+RUN mkdir -p /opt/ldap-server/certs
+RUN mkdir -p /opt/ldap-server/lib
+
 
 ARG JAR_FILE
 COPY ${JAR_FILE} app.jar
 
 EXPOSE ${LDAP_PORT} ${LDAPS_PORT}
 
-ENTRYPOINT java -Djava.security.egd=file:/dev/./urandom -jar /app.jar -sp ${LDAPS_PORT} -p ${LDAP_PORT}
+COPY entrypoint.sh entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]

@@ -113,7 +113,7 @@ public class LdapServer {
         System.out.println("You can connect to the server now");
         final String host;
         if (CLIArguments.DEFAULT_ADDR.equals(cliArguments.getBindAddress())) {
-            host = "127.0.0.1";
+            host = CLIArguments.DEFAULT_ADDR;
         } else {
             host = cliArguments.getBindAddress();
         }
